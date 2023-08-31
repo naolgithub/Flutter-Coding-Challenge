@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "706115295900",
+    "project_id": "flutter-coding-challenge-a89c8",
+    "storage_bucket": "flutter-coding-challenge-a89c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706115295900:android:0b69558cc0d3063c98ab59",
+        "android_client_info": {
+          "package_name": "com.example.flutter_coding_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706115295900-1mu9po9hp9oiu4fottatrm82o17g6bt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA6QvuWnBfQ_9KOYK7uQan9a-CeVuJcKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706115295900-1mu9po9hp9oiu4fottatrm82o17g6bt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
