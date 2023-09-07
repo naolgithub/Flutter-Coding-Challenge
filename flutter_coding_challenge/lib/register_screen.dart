@@ -4,19 +4,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'auth_bloc.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool passToggle = true;
   final _formKey = GlobalKey<FormState>();
   late String _email;
   late String _password;
-
+  late String _firstName;
+  late String _lastName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,26 +33,55 @@ class _LoginScreenState extends State<LoginScreen> {
               key: _formKey,
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  const SizedBox(
-                    child: Text(
-                      'SIGN IN',
+                  const SizedBox(height: 80),
+                  Container(
+                    child: const Text(
+                      'REGISTER',
                       style: TextStyle(
-                        color: Colors.black,
                         fontSize: 30,
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
+                  const SizedBox(height: 80),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'First Name',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.name,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your first name';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) => _firstName = value!,
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 15,
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: 'Last Name',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.name,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your last name';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) => _lastName = value!,
                     ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                     child: TextFormField(
                       decoration: const InputDecoration(
                         labelText: 'Email',
@@ -67,20 +97,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       onSaved: (value) => _email = value!,
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 15,
-                    ),
+                    padding: const EdgeInsets.all(12.0),
                     child: TextFormField(
-                      obscureText: passToggle ? true : false,
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        prefixIcon: const Icon(Icons.lock),
+                        labelText: 'Enter password',
                         border: const OutlineInputBorder(),
+                        prefixIcon: const Icon(Icons.lock),
                         suffixIcon: InkWell(
                           onTap: () {
                             if (passToggle == true) {
@@ -95,6 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               : const Icon(CupertinoIcons.eye_fill),
                         ),
                       ),
+                      obscureText: passToggle ? true : false,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your password';
@@ -104,77 +128,35 @@ class _LoginScreenState extends State<LoginScreen> {
                       onSaved: (value) => _password = value!,
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 15),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Forgot password?",
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 15),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/phone');
-                            },
-                            child: const Text(
-                              "Phone Verify",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 16.0),
                   BlocConsumer<AuthBloc, AuthStatus>(
                     listener: (context, state) {
                       if (state == AuthStatus.authenticated) {
-                        // Login successful, navigate to another screen
+                        // Registration successful, navigate to another screen
                         Navigator.pushReplacementNamed(context, '/home');
                       } else if (state == AuthStatus.error) {
                         // Show an error message
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Login failed.'),
+                            content: Text('Registration failed.'),
                           ),
                         );
                       }
                     },
                     builder: (context, state) {
                       // return ElevatedButton(
-                      //   onPressed: state == AuthStatus.loading ? null : _login,
-                      //   child: const Text('Login'),
+                      //   onPressed:
+                      //       state == AuthStatus.loading ? null : _register,
+                      //   child: const Text('Register'),
                       // );
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 15,
-                        ),
-                        child: InkWell(
-                          onTap: state == AuthStatus.loading ? null : _login,
+
+                      return InkWell(
+                        onTap: state == AuthStatus.loading ? null : _register,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 15),
-                            width: double.infinity,
+                            // width: 350,
                             decoration: BoxDecoration(
                               // color: const Color(0xFF7165D6),
                               color: Colors.black,
@@ -189,11 +171,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: const Center(
                               child: Text(
-                                "Login",
+                                "Register",
                                 style: TextStyle(
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
                                   color: Colors.white,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
@@ -202,24 +184,34 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     },
                   ),
+                  /*
+      tryinh aa
+      */
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Don't Have An Account?",
+                        "Already Have An Account?",
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
-                          color: Colors.black,
                         ),
                       ),
                       TextButton(
+                        // onPressed: () {
+                        //   Navigator.push(
+                        //       context,
+                        //       MaterialPageRoute(
+                        //         builder: (context) => const LoginScreen(),
+                        //       ));
+                        // },
+                        // onPressed: _signIn,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/');
+                          Navigator.pushNamed(context, '/login');
                         },
                         child: const Text(
-                          "Register",
+                          "Sign In",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -230,6 +222,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
+                  /*
+      truinfad ha
+      */
                 ],
               ),
             ),
@@ -239,13 +234,20 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<void> _login() async {
+  Future<void> _register() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      BlocProvider.of<AuthBloc>(context).loginWithEmailAndPassword(
-        _email,
-        _password,
-      );
+      BlocProvider.of<AuthBloc>(context)
+          .registerWithEmailAndPassword(_email, _password);
+    }
+  }
+
+// new sign in method
+  Future<void> _signIn() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      BlocProvider.of<AuthBloc>(context)
+          .loginWithEmailAndPassword(_email, _password);
     }
   }
 }

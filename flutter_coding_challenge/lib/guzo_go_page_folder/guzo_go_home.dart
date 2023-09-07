@@ -264,6 +264,10 @@ class _GuzoGoHomeState extends State<GuzoGoHome> {
                             ? InkWell(
                                 onTap: () {
                                   //select the location
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/airportLocation',
+                                  );
                                 },
                                 child: Container(
                                   child: const Column(

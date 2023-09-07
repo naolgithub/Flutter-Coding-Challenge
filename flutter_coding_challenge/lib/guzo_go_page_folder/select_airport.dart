@@ -45,6 +45,14 @@ class _SelectAirportState extends State<SelectAirport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, '/guzo_go_home');
+          },
+          child: const Text('Back'),
+        ),
+      ),
       body: Column(
         children: [
           const SizedBox(

@@ -66,6 +66,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '706115295900',
     projectId: 'flutter-coding-challenge-a89c8',
     storageBucket: 'flutter-coding-challenge-a89c8.appspot.com',
+    androidClientId: '706115295900-vrp82vsrhfnhrvsam65n4aft8ahefgn8.apps.googleusercontent.com',
     iosClientId: '706115295900-pq3i6uhq78paijjkmm2hthitsgjua0d8.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterCodingChallenge',
   );
@@ -76,6 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '706115295900',
     projectId: 'flutter-coding-challenge-a89c8',
     storageBucket: 'flutter-coding-challenge-a89c8.appspot.com',
+    androidClientId: '706115295900-vrp82vsrhfnhrvsam65n4aft8ahefgn8.apps.googleusercontent.com',
     iosClientId: '706115295900-l33cjd5itvmg60t6h9lj3299uegllhkr.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterCodingChallenge.RunnerTests',
   );
