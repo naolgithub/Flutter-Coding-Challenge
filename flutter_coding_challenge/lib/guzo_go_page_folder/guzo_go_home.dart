@@ -32,671 +32,394 @@ class _GuzoGoHomeState extends State<GuzoGoHome> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     var theme = Theme.of(context);
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        // backgroundColor: const Color.fromARGB(255, 11, 2, 56),
-        body: Column(
-          children: [
-            Container(
-              height: 360,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 11, 2, 56),
-                // image: DecorationImage(
-                //   image: AssetImage('assets/guzo.jpeg'),
-                // ),
-              ),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 90),
-                        child: Text(
-                          'Guzo Go',
-                          style: TextStyle(
-                            fontSize: 40,
-                            fontStyle: FontStyle.italic,
-                            color: Colors.amberAccent,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              width: 4,
-                              color: Colors.white,
-                            ),
-                          ),
-                          child: const Icon(
-                            Icons.notifications_active,
-                            size: 40,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  // const SizedBox(
-                  //   height: 20,
+    return SafeArea(
+      child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          // backgroundColor: const Color.fromARGB(255, 11, 2, 56),
+          body: Column(
+            children: [
+              Container(
+                height: 320,
+                width: double.infinity,
+                // width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 11, 2, 56),
+                  // image: DecorationImage(
+                  //   image: AssetImage('assets/guzo.jpeg'),
                   // ),
-                  Theme(
-                    data: theme.copyWith(
-                      colorScheme: theme.colorScheme.copyWith(
-                        surfaceVariant: Colors.transparent,
-                      ),
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 15,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 5.0,
-                        vertical: 10,
-                      ),
-                      child: Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(1000),
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.white,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 5.0,
-                            vertical: 5,
-                          ),
-                          child: TabBar(
-                            isScrollable: false,
-                            indicator: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            labelStyle: const TextStyle(color: Colors.black),
-                            unselectedLabelColor: Colors.white,
-                            // isScrollable: true,
-                            // automaticIndicatorColorAdjustment: false,
-                            tabs: [
-                              Container(
-                                alignment: Alignment.center,
-                                // width: 30,
-                                child: const Tab(
-                                  child: Text(
-                                    'Return',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                child: const Tab(
-                                  child: Text(
-                                    'One-Way',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 10,
-                    ),
-                    child: Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        buttonColor
-                            ? InkWell(
-                                onTap: () {
-                                  //select the location
-                                },
-                                child: Container(
-                                  child: const Column(
-                                    children: [
-                                      Text(
-                                        'From',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Text(
-                                        'ADD',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 35,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Addis Ababa',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Bole International Airport',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            : InkWell(
-                                onTap: () {
-                                  //select the location
-                                },
-                                child: Container(
-                                  child: const Column(
-                                    children: [
-                                      Text(
-                                        'From',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Select Destination',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-
-                        ///The following will be the middle Widget
-                        InkWell(
-                          onTap: () {
-                            //toggle the widget
-                            buttonColor = !buttonColor;
-                          },
+                        const Padding(
+                          padding: EdgeInsets.only(left: 90),
+                          child: Text(
+                            'Guzo Go',
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.amberAccent,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
                           child: Container(
-                            height: 30,
-                            width: 30,
+                            height: 50,
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(200),
+                              borderRadius: BorderRadius.circular(10),
                               border: Border.all(
-                                width: 1,
+                                width: 4,
+                                color: Colors.white,
                               ),
                             ),
                             child: const Icon(
-                              // Icons.arrow_drop_down_circle_sharp,
-                              // Icons.transfer_within_a_station_outlined,
-                              Icons.compare_arrows, size: 25,
-                              color: Colors.black,
+                              Icons.notifications_active,
+                              size: 40,
+                              color: Colors.white,
                             ),
                           ),
                         ),
-
-                        ///The above widget was a middle
-                        buttonColor
-                            ? InkWell(
-                                onTap: () {
-                                  //select the location
-                                  Navigator.pushNamed(
-                                    context,
-                                    '/airportLocation',
-                                  );
-                                },
-                                child: Container(
-                                  child: const Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        'To',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        'Select Destination',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            : InkWell(
-                                onTap: () {
-                                  //select the location
-                                },
-                                child: Container(
-                                  child: const Column(
-                                    children: [
-                                      Text(
-                                        'From',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Text(
-                                        'ADD',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 35,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Addis Ababa',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Bole International Airport',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ),
-
-            //The new white widgets
-
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                  vertical: 10,
-                ),
-                child: SizedBox(
-                  height: 100,
-                  child: GridView.count(
-                    childAspectRatio: 2.75,
-                    crossAxisCount: 2,
-                    // shrinkWrap: true,
-                    mainAxisSpacing: 0,
-                    crossAxisSpacing: 0,
-                    children: [
-                      Card(
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Theme(
+                      data: theme.copyWith(
+                        colorScheme: theme.colorScheme.copyWith(
+                          surfaceVariant: Colors.transparent,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0,
+                          vertical: 10,
+                        ),
                         child: Container(
-                          // height: 10,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            // borderRadius: BorderRadius.circular(8.0),
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(1000),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.white,
+                            ),
                           ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Departure Date',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 5.0,
+                              vertical: 5,
+                            ),
+                            child: TabBar(
+                              isScrollable: false,
+                              indicator: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              SizedBox(
-                                  // height: 15,
-                                  ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '25',
-                                    style: TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold,
+                              labelStyle: const TextStyle(color: Colors.black),
+                              unselectedLabelColor: Colors.white,
+                              // isScrollable: true,
+                              // automaticIndicatorColorAdjustment: false,
+                              tabs: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  // width: 30,
+                                  child: const Tab(
+                                    child: Text(
+                                      'Return',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        'Apr',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300,
-                                        ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: const Tab(
+                                    child: Text(
+                                      'One-Way',
+                                      style: TextStyle(
+                                        fontSize: 20,
                                       ),
-                                      Text(
-                                        'Tuesday',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Card(
-                        child: Container(
-                          // height: 10,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            // borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 0,
+                        vertical: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          buttonColor
+                              ? Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: InkWell(
+                                    onTap: () {
+                                      //select the location
+                                    },
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width *
+                                          .45,
+                                      child: const Column(
+                                        children: [
+                                          Text(
+                                            'From',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                          Text(
+                                            'ADD',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 25,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Addis Ababa',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Bole International Airport',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {
+                                    //select the location
+                                  },
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .35,
+                                    child: const Column(
+                                      children: [
+                                        Text(
+                                          'From',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Select Destination',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+                          ///The following will be the middle Widget
+                          InkWell(
+                            onTap: () {
+                              //toggle the widget
+                              buttonColor = !buttonColor;
+                            },
+                            child: Container(
+                              height: 30,
+                              // width: 30,
+                              width: MediaQuery.of(context).size.width * .10,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(200),
+                                border: Border.all(
+                                  width: 1,
+                                ),
+                              ),
+                              child: const Icon(
+                                // Icons.arrow_drop_down_circle_sharp,
+                                // Icons.transfer_within_a_station_outlined,
+                                Icons.compare_arrows, size: 25,
+                                color: Colors.black,
+                              ),
+                            ),
                           ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 8.0),
-                                child: Text(
-                                  'Return Date',
+
+                          ///The above widget was a middle
+                          buttonColor
+                              ? InkWell(
+                                  onTap: () {
+                                    //select the location
+                                    Navigator.pushNamed(
+                                      context,
+                                      '/airportLocation',
+                                    );
+                                  },
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .35,
+                                    child: const Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'To',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          'Select Destination',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {
+                                    //select the location
+                                  },
+                                  child: SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .45,
+                                    child: const Column(
+                                      children: [
+                                        Text(
+                                          'From',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        Text(
+                                          'ADD',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 25,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Addis Ababa',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Bole International Airport',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              //The new white widgets
+
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0,
+                    vertical: 0,
+                  ),
+                  child: SizedBox(
+                    height: 100,
+                    child: GridView.count(
+                      childAspectRatio: 1.9,
+                      crossAxisCount: 2,
+                      // shrinkWrap: true,
+                      mainAxisSpacing: 0,
+                      crossAxisSpacing: 0,
+                      children: [
+                        Card(
+                          child: Container(
+                            // height: 10,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              // borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Departure Date',
                                   style: TextStyle(
                                     fontSize: 15,
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '10',
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        'May',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Wednesday',
-                                        style: TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          // height: 10,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            // borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Cabin Class',
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Economy',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          // height: 10,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            // borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => const Passengers(),
-                              //   ),
-                              // );
-                              showModalBottomSheet(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return SizedBox(
-                                      height: 200,
-                                      width: double.infinity,
-                                      child: Container(
-                                        // width: 230,
-                                        // height: 230,
-                                        color: Colors.white,
-
-                                        child: Column(
-                                          children: [
-                                            const Expanded(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  Text(
-                                                    'Passengers',
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Text('Cancel'),
-                                                      SizedBox(
-                                                        width: 8,
-                                                      ),
-                                                      Text(
-                                                        'Done',
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  const Text('Adult'),
-                                                  Row(
-                                                    children: [
-                                                      const Icon(Icons
-                                                          .remove_circle_rounded),
-                                                      Text(adultNumber
-                                                          .toString()),
-                                                      const Icon(
-                                                          Icons.add_circle),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 30.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    const Text(
-                                                        'Children 2-12 Years'),
-                                                    Row(
-                                                      children: [
-                                                        const Icon(Icons
-                                                            .remove_circle_rounded),
-                                                        Text(childrenNumber
-                                                            .toString()),
-                                                        const Icon(
-                                                            Icons.add_circle),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    right: 18.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    const Text(
-                                                        'Infant <2 Years'),
-                                                    Row(
-                                                      children: [
-                                                        const Icon(Icons
-                                                            .remove_circle_rounded),
-                                                        Text(infantNumber
-                                                            .toString()),
-                                                        const Icon(
-                                                            Icons.add_circle),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  });
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Passengers',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
+                                SizedBox(
+                                    // height: 15,
+                                    ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SizedBox(
-                                      height: 40,
-                                      child: Row(
-                                        children: [
-                                          const Icon(
-                                            Icons.emoji_people_sharp,
-                                            size: 30,
-                                          ),
-                                          Text(
-                                            adultNumber.toString(),
-                                            style: const TextStyle(
-                                              fontSize: 20,
-                                            ),
-                                          )
-                                        ],
+                                    Text(
+                                      '25',
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 15,
+                                    SizedBox(
+                                      width: 10,
                                     ),
-                                    Row(
+                                    Column(
                                       children: [
-                                        const Icon(
-                                          Icons.emoji_people_sharp,
-                                          size: 20,
-                                        ),
                                         Text(
-                                          childrenNumber.toString(),
-                                          style: const TextStyle(
-                                            fontSize: 20,
+                                          'Apr',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300,
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    const SizedBox(
-                                      width: 15,
-                                    ),
-                                    Row(
-                                      children: [
-                                        const Icon(
-                                          Icons.emoji_people_sharp,
-                                          size: 15,
                                         ),
                                         Text(
-                                          infantNumber.toString(),
-                                          style: const TextStyle(fontSize: 20),
-                                        )
+                                          'Tuesday',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -705,81 +428,597 @@ class _GuzoGoHomeState extends State<GuzoGoHome> {
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+                        Card(
+                          child: Container(
+                            // height: 10,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              // borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(left: 30.0),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Return Date',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      '10',
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          'May',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Wednesday',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w300,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Container(
+                            // height: 10,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              // borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => const Passengers(),
+                                //   ),
+                                // );
+                                showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        height: 340,
+                                        width: double.infinity,
+                                        child: Container(
+                                          // width: 230,
+                                          // height: 230,
+                                          color: Colors.white,
 
-            Padding(
-              // padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-              padding: const EdgeInsets.only(
-                left: 20,
-                right: 20,
-              ),
-              child: Container(
-                height: 40,
-                // width: 100,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(255, 235, 59, 1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Search Flights',
-                    style: TextStyle(
-                      fontSize: 20,
+                                          child: ListView(
+                                            children: const [
+                                              SizedBox(
+                                                height: 25,
+                                              ),
+                                              Expanded(
+                                                child: Card(
+                                                  color: Colors.white,
+                                                  borderOnForeground: true,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Text(
+                                                        'Cabin Class',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Cancel',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 15,
+                                              ),
+                                              Expanded(
+                                                child: Card(
+                                                  color: Colors.white,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Text(
+                                                        'Economy',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                      Icon(
+                                                        Icons.check,
+                                                        size: 20,
+                                                      )
+                                                      // Text(
+                                                      //   'Cancel',
+                                                      //   style: TextStyle(
+                                                      //     fontWeight:
+                                                      //         FontWeight.bold,
+                                                      //   ),
+                                                      // ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 15,
+                                              ),
+                                              Expanded(
+                                                child: Card(
+                                                  color: Colors.white,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Text(
+                                                        'Bussiness',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 15,
+                                              ),
+                                              Expanded(
+                                                child: Card(
+                                                  color: Colors.white,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Text(
+                                                        'First',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        '    ',
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                              },
+                              child: const Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Cabin Class',
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    'Economy',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Container(
+                            // height: 10,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              // borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => const Passengers(),
+                                //   ),
+                                // );
+                                showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        height: 340,
+                                        width: double.infinity,
+                                        child: Container(
+                                          // width: 230,
+                                          // height: 230,
+                                          color: Colors.white,
+
+                                          child: Column(
+                                            children: [
+                                              const SizedBox(
+                                                height: 15,
+                                              ),
+                                              const Expanded(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    Text(
+                                                      'Passengers',
+                                                      style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20,
+                                                      ),
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          'Cancel',
+                                                          style: TextStyle(
+                                                            fontSize: 20,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8,
+                                                        ),
+                                                        Text(
+                                                          'Done',
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontSize: 20,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    const Text(
+                                                      'Adult',
+                                                      style: TextStyle(
+                                                        fontSize: 20,
+                                                      ),
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        const Icon(
+                                                          Icons
+                                                              .remove_circle_rounded,
+                                                          size: 30,
+                                                        ),
+                                                        Text(
+                                                          adultNumber
+                                                              .toString(),
+                                                          style:
+                                                              const TextStyle(
+                                                            fontSize: 20,
+                                                          ),
+                                                        ),
+                                                        const Icon(
+                                                          Icons.add_circle,
+                                                          size: 30,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    right: 30.0,
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      const Text(
+                                                        'Children 2-12 Years',
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                        ),
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          const Icon(
+                                                            Icons
+                                                                .remove_circle_rounded,
+                                                            size: 30,
+                                                          ),
+                                                          Text(
+                                                              childrenNumber
+                                                                  .toString(),
+                                                              style:
+                                                                  const TextStyle(
+                                                                fontSize: 20,
+                                                              )),
+                                                          const Icon(
+                                                            Icons.add_circle,
+                                                            size: 30,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                    right: 18.0,
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      const Text(
+                                                        'Infant <2 Years',
+                                                        style: TextStyle(
+                                                          fontSize: 20,
+                                                        ),
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          const Icon(
+                                                            Icons
+                                                                .remove_circle_rounded,
+                                                            size: 30,
+                                                          ),
+                                                          Text(
+                                                              infantNumber
+                                                                  .toString(),
+                                                              style:
+                                                                  const TextStyle(
+                                                                fontSize: 20,
+                                                              )),
+                                                          const Icon(
+                                                            Icons.add_circle,
+                                                            size: 30,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                height: 15,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                              },
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Passengers',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 40,
+                                        child: Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.emoji_people_sharp,
+                                              size: 30,
+                                            ),
+                                            Text(
+                                              adultNumber.toString(),
+                                              style: const TextStyle(
+                                                fontSize: 20,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 15,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.emoji_people_sharp,
+                                            size: 20,
+                                          ),
+                                          Text(
+                                            childrenNumber.toString(),
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        width: 15,
+                                      ),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.emoji_people_sharp,
+                                            size: 15,
+                                          ),
+                                          Text(
+                                            infantNumber.toString(),
+                                            style:
+                                                const TextStyle(fontSize: 20),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              child: _widgetOptions.elementAt(_currentIndex),
-            ),
-          ],
-        ),
 
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          backgroundColor: colorScheme.surface,
-          selectedItemColor: colorScheme.onSurface,
-          unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
-          selectedLabelStyle: textTheme.bodySmall,
-          unselectedLabelStyle: textTheme.bodySmall,
-          onTap: (value) {
-            // Respond to item press.
-            setState(() => _currentIndex = value);
-          },
-          items: [
-            const BottomNavigationBarItem(
-              label: 'Search',
-              icon: Icon(Icons.search),
-            ),
-            const BottomNavigationBarItem(
-              label: 'Booking',
-              icon: Icon(Icons.book),
-            ),
-            const BottomNavigationBarItem(
-              label: 'Notifications',
-              icon: Icon(Icons.notifications),
-            ),
-            BottomNavigationBarItem(
-              label: 'Settings',
-              icon: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: const Icon(Icons.settings),
+              Padding(
+                // padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                padding: const EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                ),
+                child: Container(
+                  height: 40,
+                  // width: 100,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(255, 235, 59, 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Search Flights',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 80,
+              ),
+              Container(
+                child: _widgetOptions.elementAt(_currentIndex),
+              ),
+            ],
+          ),
+
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _currentIndex,
+            backgroundColor: colorScheme.surface,
+            selectedItemColor: colorScheme.onSurface,
+            unselectedItemColor: colorScheme.onSurface.withOpacity(.60),
+            selectedLabelStyle: textTheme.bodySmall,
+            unselectedLabelStyle: textTheme.bodySmall,
+            onTap: (value) {
+              // Respond to item press.
+              setState(() => _currentIndex = value);
+            },
+            items: [
+              const BottomNavigationBarItem(
+                label: 'Search',
+                icon: Icon(Icons.search),
+              ),
+              const BottomNavigationBarItem(
+                label: 'Booking',
+                icon: Icon(Icons.book),
+              ),
+              const BottomNavigationBarItem(
+                label: 'Notifications',
+                icon: Icon(Icons.notifications),
+              ),
+              BottomNavigationBarItem(
+                label: 'Settings',
+                icon: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                  child: const Icon(Icons.settings),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

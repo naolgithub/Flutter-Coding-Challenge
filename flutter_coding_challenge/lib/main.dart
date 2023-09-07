@@ -2,9 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_coding_challenge/firebase_options.dart';
-import 'package:flutter_coding_challenge/guzo_go_page_folder/guzo_go_home.dart';
 
 import 'auth_bloc.dart';
+import 'guzo_go_page_folder/guzo_go_home.dart';
 import 'guzo_go_page_folder/select_airport.dart';
 import 'login_screen.dart';
 import 'phone_otp_folder/otp.dart';
@@ -38,6 +38,7 @@ class CodingChallengeApp extends StatelessWidget {
       //   create: (_) => getIt<AuthBloc>(),
       //   child: const RegisterScreen(),
       // ),
+
       initialRoute: '/',
       routes: {
         '/': (context) => BlocProvider(
